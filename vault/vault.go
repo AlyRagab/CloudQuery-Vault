@@ -8,6 +8,10 @@ import (
 	"github.com/fsnotify/fsnotify"
 )
 
+type AuditData struct {
+	auditContent []byte
+}
+
 var filePath = "/Users/aly/work/vault/audit/audit.log"
 
 func check(e error) {
