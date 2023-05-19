@@ -7,19 +7,21 @@ import (
 	"github.com/cloudquery/plugin-sdk/v2/schema"
 )
 
+// Transform Vault audit data
 func VaultTable() *schema.Table {
 	return &schema.Table{
-		Name:     "vault_table",
+		Name:     "vault",
 		Resolver: fetchVaultTable,
 		Columns: []schema.Column{
 			{
-				Name: "column",
+				Name: "audit",
 				Type: schema.TypeString,
 			},
 		},
 	}
 }
 
-func fetchVaultTable(ctx context.Context, meta schema.ClientMeta, parent *schema.Resource, res chan<- interface{}) {
+func fetchVaultTable(ctx context.Context, meta schema.ClientMeta, parent *schema.Resource, res chan<- interface{}) error {
 	vault.WatchFile()
+	return nil
 }
