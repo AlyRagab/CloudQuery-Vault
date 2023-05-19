@@ -23,11 +23,11 @@ jobs:
           args: release --rm-dist --skip-validate --skip-publish --skip-sign
       - uses: release-drafter/release-drafter@v5.17.6
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v3
         with:
           version: latest
           args: release --rm-dist --skip-sign
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
