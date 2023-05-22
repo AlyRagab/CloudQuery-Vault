@@ -4,8 +4,8 @@ go 1.19
 
 require (
 	github.com/cloudquery/plugin-pb-go v1.0.5
+	github.com/cloudquery/plugin-sdk v1.45.0
 	github.com/cloudquery/plugin-sdk/v2 v2.7.0
-	github.com/fsnotify/fsnotify v1.6.0
 	github.com/rs/zerolog v1.29.0
 )
 

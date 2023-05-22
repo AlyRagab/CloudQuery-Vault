@@ -3,6 +3,8 @@ package client
 import (
 	"context"
 	"fmt"
+
+	"github.com/alyragab/cq-source-vault/vault"
 	"github.com/cloudquery/plugin-pb-go/specs"
 	"github.com/cloudquery/plugin-sdk/v2/plugins/source"
 	"github.com/cloudquery/plugin-sdk/v2/schema"
@@ -14,8 +16,13 @@ type Client struct {
 }
 
 func (c *Client) ID() string {
-	// TODO: Change to either your plugin name or a unique dynamic identifier
 	return "ID"
+}
+
+func (c *Client) FileContent() string {
+	audit := vault.AuditData{}
+	audit.AuditFileCheck()
+	return audit.AuditContent
 }
 
 func New(ctx context.Context, logger zerolog.Logger, s specs.Source, opts source.Options) (schema.ClientMeta, error) {

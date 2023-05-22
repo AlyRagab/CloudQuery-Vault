@@ -6,6 +6,27 @@ Shipping HashiCorp/Vault Audit Logs to CloudQuery PostgreSQL
 
 A vault source plugin for CloudQuery that loads data from vault to any database, data warehouse or data lake supported by [CloudQuery](https://www.cloudquery.io/), such as PostgreSQL, BigQuery, Athena, and many more.
 
+## How it works ?
+
+It Gets Hashicorp/Vault Audit data from its local file (as audit file device) and Transforms it into any supported Destination (Postgres, SQLite, ES ...etc)
+
+It then truncates the content of that local file in order to keep it away from getting fully utilized
+
+It can be executed using the below commands:
+
+```bash
+go build -o cq-source-CloudQuery-Vault main.go
+cloudquery sync config.yaml
+```
+
+Check the database 
+
+```bash
+sqlite ./sqlite.sql
+.schema # Returns information related to the schema in SQLite
+select * from vault;
+```
+
 ## Links
 
  - [CloudQuery Quickstart Guide](https://www.cloudquery.io/docs/quickstart)
@@ -40,12 +61,6 @@ make test
 
 ```bash
 make lint
-```
-
-### Generate docs
-
-```bash
-make gen-docs
 ```
 
 ### Release a new version
