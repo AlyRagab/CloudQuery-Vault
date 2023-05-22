@@ -1,8 +1,9 @@
 kind: source
 spec:
   name: vault
-  path: alyragab/CloudQuery-Vault
-  version: v1.0.0
+  registry: local
+  path: /Users/aly/work/aly/CloudQuery-Vault/cq-source-CloudQuery-Vault
+  #version: v1.0.0
   destinations: ["sqlite"]
   tables: ["vault"]
   spec:

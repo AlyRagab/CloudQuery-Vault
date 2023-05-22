@@ -13,7 +13,7 @@ var (
 
 func Plugin() *source.Plugin {
 	return source.NewPlugin(
-		"alyragab-vault",
+		"vault",
 		Version,
 		schema.Tables{
 			resources.VaultTable(),
